@@ -1,0 +1,85 @@
+{% extends "headfoot.html" %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid" style="padding-top:50px;">
+        <div class="row">
+            <ul type="none" class="side-menu">
+                <li class="col-md-3">
+                    <a href="{% url 'dashboard' %}" class="nav-link btn">My Profile</a>
+                </li>
+                <li class="col-md-3">
+                    <a href="{% url 'edit-prof' %}" class="nav-link btn">Edit Profile</a>
+                </li>
+                <li class="col-md-3">
+                    <a href="{% url 'cpass' %}" class="nav-link btn"><i class="fa-solid fa-caret-right"style="font-size:20px;"></i> &nbsp;&nbsp;&nbsp;&nbsp;Change Password</a>
+                </li>
+                <li class="col-md-3 col-6 nav-item head">
+                    <a href="{% url 'adds' %}" class="nav-link btn">My Ad
+                    </a>
+                </li>
+                <li class="col-md-3 col-6 nav-item head">
+                    <a href="{% url 'editad' %}" class="nav-link btn">Edit Ad
+                    </a>
+                </li>
+                <li class="col-md-3 col-6 nav-item head">
+                    <a href="{% url 'delete_ad' %}" class="nav-link btn">Delete Ad
+                    </a>
+                </li>
+                <li class="col-md-3">
+                    <a href="{% url 'logout' %}" class="nav-link btn">Log Out</a>
+                </li>
+            </ul>
+            <div class="tab-pane tab" id="cpass">
+                {% if message %}
+                <div class="reg_form-group"align="center" style="margin-left: 250px;font-size:20px;">
+                    <p class="alert {{class}}">{{message}}</p>
+                </div>
+                {% endif %}
+                <div class="col-md-10">
+                    <form action="" method="post" class="regform mu-contact-form dash-edit-form">
+                        {% csrf_token %}
+                        <div class="reg_form-group" style="margin-left:250px;">
+                            <input type="password" class="form_input form-control" id="cur_pass" name="current_password" placeholder="Current Password" required>
+                            <label class="form_label" for="pass">Current Password</label>
+                        </div>
+                        <div class="reg_form-group">
+                            <div id="msz" ></div>
+                        </div>
+                        <div class="row">
+                            <div class="reg_form-group">
+                                <span style="font-size: 12px; padding: 2px;"></span>
+                                <input type="password" class="form_input form-control" name="new_password" id="pass" placeholder="New Password" required>
+                                <label class="form_label" for="pass">New Password</label>
+                            </div>
+                            <div class="reg_form-group">
+                                <span class='text-center ml-3' id='msz' style="font-size: 12px; padding: 2px;"></span>
+                                <input type="password" class="form_input form-control" name="r_new_password" id="re_pass" placeholder="Confirm Password" onkeyup="checkPass()" required>
+                                <label class="form_label" for="pass">Confirm Password</label>
+                            </div>
+                            <div class="col-md-12 form-group text-center p-0 m-0">
+                                <input type="submit" style="width:auto;"class="btn btn--green" id="change_pass" name="change_pass" value="Change Password">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+{% endblock %}
+<!-- {% block script %}
+<script>
+    function checkPass(){
+        var p = $('#pass').val();
+        var cp = $('#re_pass').val();
+        if(p==cp){
+            $("#change_pass").attr('disabled',false).css({'background':'none'});
+            $("#re_pass").css({'border':'2px bold green','color':'green'})
+            $('#msz').html('').css({'background':'none'});
+        }else{
+            $("#re_pass").css({'border':'2px bold red','color':'red'})
+            $("#change_pass").attr('disabled',true);
+            $('#msz').html("<span>Password didn't matched!<span>").css({'background':'red'});
+        }
+    }
+</script>
+{% endblock %} -->

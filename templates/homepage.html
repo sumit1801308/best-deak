@@ -1,0 +1,203 @@
+{% extends "headfoot.html" %}
+{% load static %}
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <div class="banner">
+        <i class="banner_text">Get Your CAR inspected for Free from the comfort of your home.</i>
+    </div>
+    <div class="container-fluid m-0 p-0">
+        <div class="row main col-md-12">
+            <img src="../static/images/main_car_pic.jpg" alt="" class="bimage">
+            <div class="highlight">
+                <p class="highlight_text">
+                    Sell your car in 30 minutes.
+                </p>
+                <ul type="none" class="highlight_list">
+                    <li><i class="fa-regular fa-square-check"></i> Guaranteed Purchase</li>
+                    <li><i class="fa-regular fa-square-check"></i> Quick and Easy</li>
+                    <li><i class="fa-regular fa-square-check"></i> No Costs, No Obligation</li>
+                    <li><i class="fa-regular fa-square-check"></i> Fast and Secure</li>
+                </ul>
+            </div>
+            <div class="container">
+                <div class="form p-0">
+                    <div class="form_head text-center">
+                        <p>FREE and INSTANT Online Car Valuation!</p>
+                    </div>
+                    <form action="" class="p-4" method="POST">
+                        {% csrf_token %}
+                        <label for="" class="text-center"><img src="../static/images/mycar1.png" alt="" class="form_img">
+                        </label>
+                        {% if status %}
+                            <h2 class="alert {{class}}" align="center">{{status}}</h2>
+                        {% endif %}
+                        <div class="form-group">
+                            <input type="text" class="form_input form-control" placeholder="Your Email" name="email" id="name" 
+                            title="Please enter the registered email!!" required>
+                            <label for="name" class="form_label ">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form_input form-control" placeholder="Password" name="pass" id="pass" required>
+                            <label for="pass" class="form_label">Password</label>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <div class="form-group" style="text-align: center;font-size: 15px;">
+                            <span>User is Active </span>
+                        </div>
+                        <div class="form-group">
+                            <a href="{% url 'dashboard' %}" class="btn btn--green form-control">Go to DashBoard</a>
+                        </div>
+                        {% else %}
+                        <div class="form-group">
+                            <button class="btn btn--green form-control">Login</button>
+                        </div>
+                        <div class="form-group" style="text-align: center;font-size: 15px;">
+                            <span>New Member ? </span><a href="{% url 'signup' %}">Register</a>
+                        </div>
+                        {%endif%}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid m-0 ">
+        <div class="col-md-12 step_sec">
+            <p>All in 3 Simple Steps</p>
+        </div>
+        <div class="row">
+            <div class="col-md-3 m-0 p-0"></div>
+            <div class="col-md-2">
+                <div class="sec_step">
+                    <h1><b>1</b> <i class="fa-solid fa-car-side"></i></h1>
+                    <p>Upload a car details from your home</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="sec_step">
+                    <h1><b>2</b> <i class="fa-solid fa-calendar-day"></i></h1>
+                    <p>Book an appoinment for a free car inspections near you</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="sec_step">
+                    <h1><b>3</b> <i class="fa-solid fa-coins"></i></h1>
+                    <p>Complete the sale and get paid if you are happy with the offer.</p>
+                </div>
+            </div>
+            <div class="col-md-3 m-0 p-0"></div>
+        </div>
+    </div>
+    <div class="container-fluid m-0">
+        <div class="col-md-12 info_head">
+            <p>Your Reliable Partner for car sales</p>
+        </div>
+        <div class="row">
+            <div class="col-md-2 m-0 p-0"></div>
+            <div class="col-md-4 info_pr">
+                <div><p>Best Deal offers a new, safe and convenient way of selling your car throughout the Arab world. Use our free car valuation service regardless of make and model to determine the best used car price. <br>
+                    Take advantage of the professional and gratis car inspection and the fast car buying service by Best Deal - the perfect alternative to time-consuming and tiring advertisements. <br>
+                    
+                    Best Deal offers free car deregistration, part-exchange and settlement of bank loans and mortgages. In any situation we offer you a fast, easy and fair car buying service.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    blanditiis reiciendis est modi beatae recusandae? Quo commodi expedita illum.</p>
+                </div>                
+            </div>
+            <div class="col-md-4  info_list">
+                <div>
+                    <p>Our Services Include</p>
+                    <ul type="none">
+                        <li><i class="fa-solid fa-check"></i> Free and instant car evaluation</li>
+                        <li><i class="fa-solid fa-check"></i> Free car inspection</li>
+                        <li><i class="fa-solid fa-check"></i> Guarantee to purcase any car within 30 minutes</li>
+                        <li><i class="fa-solid fa-check"></i> Instant payments</li>
+                        <li><i class="fa-solid fa-check"></i> We take care of all paperwork</li>
+                        <li><i class="fa-solid fa-check"></i> Sell your car at best price deal</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid m-0">
+        <div class="cust_head">
+            <p>Join our happy customers</p>
+        </div>
+        <div class="row ml-5 mt-5">
+            <div class="col-md-3">
+                <div class="cust">
+                    <figure class="cust_shape">
+                        <img src="{% static 'images/cust1.jpg' %}" alt="" class="cust_img">
+                        <figcaption class="cust_caption">Mary Smith</figcaption>
+                    </figure>
+                    <p class="cust_text">Lorem ipsum dolor sit amet consecte</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="cust">
+                    <figure class="cust_shape">
+                        <img src="{% static 'images/cust2.jpg' %}" alt="" class="cust_img">
+                        <figcaption class="cust_caption">Mary Smith</figcaption>
+                    </figure>
+                    <p class="cust_text">Lorem ipsum dolor sit amet consecte</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="cust">
+                    <figure class="cust_shape">
+                        <img src="{% static 'images/cust3.jpg' %}" alt="" class="cust_img">
+                        <figcaption class="cust_caption">Mary Smith</figcaption>
+                    </figure>
+                    <p class="cust_text">Lorem ipsum dolor sit amet consecte</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="cust">
+                    <figure class="cust_shape">
+                        <img src="{% static 'images/cust4.jpg' %}" alt="" class="cust_img">
+                        <figcaption class="cust_caption">Mary Smith</figcaption>
+                    </figure>
+                    <p class="cust_text">Lorem ipsum dolor sit amet consecte</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid m-0">
+        <div class="col-md-12">
+            <div class="feature_head text_center">
+                <p>Your Reliable Partner for car sales</p>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <div class="features">
+                    <img src="{% static 'images/2.png' %}" alt=""><br>
+                    <br><h1>Guaranteed Purchase</h1><br>
+                    <p>We guarantee to buy any car at a fair price</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="features">
+                    <img src="{% static 'images/1.png' %}" alt=""><br>
+                    <br><h1>No Costs. No Obligation</h1><br>
+                    <p>Free online valuation and car inspection in one of our many branches.</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="features">
+                    <img src="{% static 'images/3.png' %}" alt=""><br>
+                    <br><h1>Quick and Easy</h1><br><br><br>
+                    <p>All done in 30 minutes. Nationwide branches near you</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="features">
+                    <img src="{% static 'images/4.png' %}" alt=""><br>
+                    <br><h1>Fast and Secure</h1><br><br><br>
+                    <p>No dodgy deals. We transfer the money straight into your bank account.</p>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+{% endblock %}

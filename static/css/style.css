@@ -1,0 +1,765 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; }
+  
+  html {
+    font-size: 10px; }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; }
+
+/* ================================================Header ================================================================= */
+.web_name {
+  position: relative;
+    font-size: 4.5rem;
+    left: 5%;
+    top: 0;
+    animation: moveInText 2s ease-out; }
+  
+.car_logo img {
+    position: relative;
+    left: 30%;
+    top: 3%;
+    height: 5.5rem;
+    animation: moveInRight  2s ; }
+  
+    @keyframes moveInText {
+        0% {
+          opacity: 0;
+          transform: translateX(-150px); }
+        100% {
+          opacity: 1;
+          transform: translate(0); } }
+  @keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-150px); }
+    80% {
+      transform: translateX(20px); }
+    100% {
+      opacity: 1;
+      transform: translate(0); } }
+
+.hotline_number p{
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 10px;
+}
+.hotline_logo p{
+  font-size: 5rem;
+  margin-bottom: 5px;
+}
+.hotline_logo span{
+  margin: 10px 0 0 8px ;
+  font-size: 5rem;
+  color:  rgb(28, 240, 28);;
+}
+/* =============================================================navigation Button=========================================================*/
+.navigation_checkbox{
+  display: none;
+}
+.navigation_button{
+  background-color: radial-gradient(rgb(119, 253, 125),rgb(28, 240, 28));
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 1rem;
+  right: 7rem;
+  border-radius: 50%;
+  z-index: 2000;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+}
+.navigation_background{
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 1.5rem;
+  right: 7.5rem;
+  background-image: radial-gradient(rgba(110, 255, 117, 0.89),rgb(52, 253, 52));
+  z-index: 1000;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.navigation_nav{
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1500;
+  opacity: 0;
+  width: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.navigation_list{
+  position: absolute;
+  top: 50%; 
+  left:50%;
+  transform: translate(-50%,-50%);
+  list-style: none;
+  text-align: center;
+  width: 100%;
+}
+.navigation_item{
+  margin: 1rem;
+}
+.navigation_link:link, .navigation_link:visited{
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg,transparent 0%,transparent 50%, white 50% );
+  background-size: 220%;
+  transition: all .4s ;}
+  .navigation_link:link span, .navigation_link:visited span{
+    margin-right: 1.5rem;
+    display: inline-block;
+  }
+.navigation_link:hover, .navigation_link:active{
+  background-position: 100%;
+  color:rgb(28, 240, 28);
+  transform: translateX(1rem);
+}
+
+.navigation_checkbox:checked ~ .navigation_background{
+  transform: scale(80);
+}
+
+.navigation_checkbox:checked ~ .navigation_nav{
+  opacity:1;
+  width: 100%;
+}
+
+.navigation__icon{
+  position: relative;
+  margin-top: 3.5rem;}
+  .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+    width: 3rem;
+    height: 2px;
+    background-color: #333;
+    display: inline-block; }
+  .navigation__icon::before, .navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all .2s; }
+  .navigation__icon::before {
+    top: -.8rem; }
+  .navigation__icon::after {
+    top: .8rem; }
+
+.navigation_button:hover .navigation__icon::before {
+  top: -1rem; }
+
+.navigation_button:hover .navigation__icon::after {
+  top: 1rem; }
+
+.navigation_checkbox:checked + .navigation_button .navigation__icon {
+  background-color: transparent; }
+
+.navigation_checkbox:checked + .navigation_button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg); }
+
+.navigation_checkbox:checked + .navigation_button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg); }
+
+/* .dropdown-menu {
+  background-color: #817b7b !important;
+  width: 100% !important;
+  text-align: center !important;
+  border-radius: 20px !important;
+  color: black;
+  transition: 1s; } */
+
+
+/* .link {
+  color: #fff; }
+
+.link:hover {
+  color: #fff !important;
+  text-decoration: none; } */
+
+
+/* -===============================================================footer ================================================================ */
+.foot{
+  background-color: rgba(66, 245, 75, 0.404);
+  height: 25rem;
+}
+.foot_title{
+  position: relative;
+  font-size: 5rem;
+  font-weight: 200;
+  letter-spacing: .2rem;
+  font-style: italic;
+  top: 10%;
+  left: 70%;
+}
+.foot_img{
+  position: relative;
+  display: block;
+  height: 7rem;
+  top: 10%;
+  left: 70%;
+}
+
+.foot_detail{
+  position: relative;
+  left: 20%;
+}
+
+.foot_list{
+  margin: 2rem;
+}
+.foot_item{
+  font-size: 1.5rem;
+  font-size: 200;
+  letter-spacing: .3rem;
+  padding: .5rem;
+}
+.foot_link{
+  color: black;
+  text-decoration: none;
+}
+
+/* =========================================================================== homepage ==================================================================== */
+.banner{
+  background-color: rgba(135, 207, 235, 0.712);
+  height: 8rem;
+}
+.banner_text{
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+  color: rgb(2, 139, 194);
+  position: relative;
+  margin: 13%;
+  top: 20%;
+}
+
+.main
+{
+  margin: 0;
+  height: 50rem;
+}
+.bimage{
+  height:auto;
+  width: 70%;
+  margin-top: 5rem;
+  margin-left: 30rem;
+  background-size: cover;
+  background-position: top;
+}
+.highlight{
+  width: 40rem;
+  margin: 5rem;
+  position: absolute;
+  left: 2%;
+}
+.highlight_text{
+  font-size: 5rem;
+  font-weight: bold;
+  line-height: 5.5rem;}
+
+.highlight_list{
+  margin-top: 5rem;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  line-height: 7rem;
+}
+/* ===================================================================== Login Form Homepage ======================================================== */
+.form{
+  padding: 0 3rem 3rem 3rem;
+  position: absolute;
+  left: 65%;
+  top: 10%;
+  width: 40rem;
+  border-radius: 2%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.form_head{
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin-top: 0;
+  padding: 0 2px 0 2px;
+  margin-bottom: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1.95px;
+  width: 100%;
+  height: 4rem;
+}
+.form_head p{
+  margin-top: 2rem;
+}
+
+.form_img{
+  height: 6.5rem;
+  margin: 0 0 1.5rem 4rem;
+}
+
+.form_groups:not(:last-child){
+  margin-bottom: 2rem;
+}
+
+.form_input{
+  font-size: 1.5rem;
+  font-family: inherit;
+  color: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(#fff, 0.5);
+  border-radius: 3px solid transparent;
+  width: 100%;
+  display: block;
+  transition: all .3s;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.form_input:focus{
+  outline:none;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+  border-bottom: 3px solid rgb(28, 240, 28);
+}
+.form_input:focus:invalid {
+  border-bottom: 3px solid #ff7730; }
+.form_input::-webkit-input-placeholder {
+  color: #999; }
+
+.form_label {
+font-size: 1.7rem;
+margin-left: 2rem;
+margin-top: .7rem;
+display: block;
+transition: all .3s; }
+
+.form_input:placeholder-shown + .form_label {
+opacity: 0;
+visibility: hidden;
+transform: translateY(-4rem); }
+
+.btn, .btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer; }
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0; }
+.btn:active, .btn:focus {
+  outline: none;  
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn--green {
+  background-color: rgb(28, 240, 28);
+  color: #fff; }
+.btn--green::after {
+  background-color: rgb(28, 240, 28); }
+
+/* ============================================================================= Section 1 ==================================================================== */
+
+.step_sec{
+  height: auto;
+  text-align: center;
+  margin-top: 7rem;
+}
+.step_sec p{
+  font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 4px;  
+}
+.sec_step{
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.sec_step b{
+  font-size: 10rem;
+  color: rgb(28, 240, 28) ;
+}
+.sec_step i{
+  font-size: 6.5rem;
+}
+.sec_step p{
+  font-size: 1.8rem;
+}
+
+/* ============================================================================ Section 2 ===================================================================== */
+
+.info_head{
+  text-align: center;
+  font-size: 4.5rem;
+  color: black;
+  font-weight: bold;
+  margin-top: 5rem;
+}
+
+.info_pr{
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2.8rem;
+}
+.info_list{
+  background-color: aliceblue;
+  border-radius: 10px;
+
+}
+
+.info_list p{
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin: 1rem;
+}
+.info_list ul{
+  line-height: 4.5rem;
+}
+.info_list li{
+  font-size: 1.8rem;
+}
+
+.cust_head{
+  text-align: center;
+  font-size: 4.5rem;
+  color: black;
+  font-weight: bold;
+  margin-top: 5rem;
+}
+
+.cust_shape{
+    width: 22rem;
+    height: 22rem;
+    /* float: left; */
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    /* transform: translateX(-3rem) skewX(12deg); */
+    position: relative;
+}
+
+.cust_img{
+  height: 28rem;
+  width: 28rem;
+  background-size: cover;
+  border-radius: 50%;
+  transform: translateX(-4rem) scale(1.4);
+  backface-visibility: hidden;
+  transition: all .5s;
+}
+
+.cust_caption{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+}
+
+.cust:hover .cust_caption {
+  opacity: 1;
+  transform: translate(-50%, -50%); }
+.cust:hover .cust_img {
+  transform: translateX(-4rem) scale(1);
+  filter: blur(3px) brightness(80%); }
+
+.cust_text{
+  font-size: 2.2rem;
+  line-height: 3rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+.features img{
+  height: 15rem;
+  width: 15rem;
+}
+.features p{
+  font-size: 1.7rem;
+}
+.feature_head{
+  font-size: 4rem;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 8rem;
+}
+
+/* =================================================== Cars.html ======================================================== */
+
+.car_banner{
+  font-size: 5.5rem;
+  text-align: center;
+  margin: 3rem;
+  font-weight: bolder;
+}
+.car_box:hover{
+  box-shadow: 0px 0px 1rem;
+  transform: translateY(-5px);
+}
+.car_box{
+  border-radius: 5%;
+  box-shadow: 0px 0px 0.5rem;
+  padding: 1px;
+  color: black;
+}
+.car_box_img{
+  border-top-left-radius:5% ;
+  border-top-right-radius:5% ;
+  height: 25rem;
+  width: 100%;
+  background-size: cover;
+}
+.car_details:hover{
+  color: black;
+}
+.car_details{
+  color: black;
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+.car_name{
+  font-size: 2.5rem;
+}
+.car_features{
+  font-size: 1.8rem;
+  background-color: rgb(184, 204, 221);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin: 5px;
+}
+.car_info{
+  font-size: 2rem;
+}
+
+/* ================================================================== Register.html =============================================== */
+
+.regform_title{
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 3rem;
+  font-weight: bold;
+}
+.regform{
+  margin: auto;
+}
+.reg_form-group{
+  width: 47%;
+  margin: 1rem;
+}
+
+.form_radio{
+  display: inline-block;
+}
+.radio_form-label{
+  display: block;
+  position: relative;
+  padding-left: 50px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.radio_input{
+  position: absolute;
+  opacity: 0;
+  left: 20%;
+  top: 20%;
+  cursor: pointer;
+}
+
+.custom-radio-button{
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1.5rem;
+  border: 5px solid rgb(28, 240, 28);
+  height: 2.4rem;
+  width: 2.4rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
+
+.custom-radio-button::after{
+  content: "";
+  display: block;
+  height: 1.3rem;
+  width: 1.3rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #55c57a;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.radio_input:checked+.custom-radio-button{
+  background-color: rgb(28, 240, 28);
+}
+.radio_input:checked+.custom-radio-button::after{
+  display: block;
+}
+
+.contact_head{
+  font-size: 4rem;
+  margin: 5rem auto;
+  text-align: center;
+  font-weight: bold;
+}
+.contact_details{
+  position: absolute;
+  top: 40%;
+  left:24%;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 2px rgba(7, 6, 6, 0.438);
+  font-size: 2.5rem;
+  padding: 5rem;
+  width: 150rem;
+  z-index: 500;
+}
+.contact_social{
+  color: black;
+  font-size:3rem;  
+}
+.contact_social ul{
+  margin-left:6rem;
+}
+.contact_social li{
+  margin: 0px 3rem;
+  margin-left:3.2rem;
+  margin-top: 2rem;
+}
+.contact_social a{
+  color: black;
+}
+.contact_social a:hover{
+  color: rgb(28, 240, 28);
+}
+
+.contact_image{
+  height:45rem;
+  width: 55rem;
+  margin-top: 7rem;
+  margin-right: 12rem;
+}
+.contact_image_2{
+  height:45rem;
+  width: 55rem;
+  margin-top: 7rem;
+}
+
+.about{
+  font-size: 2rem;
+}
+
+.about_details{
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 2px rgba(7, 6, 6, 0.438);
+  font-size: 2.5rem;
+  padding: 5rem;
+  width: 150rem;
+  z-index: 500;
+}
+
+/* ================================================ Dashboard.html ============================================================ */
+
+.side-menu{
+  border-bottom: none;
+  list-style-type: none;
+  display: inline-block;
+}
+.nav-link{
+  color: black;
+  display: block;
+}
+ .nav-link:hover{
+   color: white;
+    background-color: rgb(28, 240, 28)
+ }
+
+ .tab{
+  border-left: 0.2rem solid black;
+  /* width: 50rem; */
+ }
+ .profile-image{
+   height: 30rem;
+   width: 30rem;
+   border-radius: 50%;
+ }
+ .profile-info{
+   font-size: 2rem;
+   margin-left:18rem;
+   width: 100%;
+ }
+
+ .profile-name{
+   font-style: italic;
+   font-size: 2.5rem;
+ }
+
+ .dash-edit-form{
+   width: 90rem; 
+ }
+
+ .profile_pic{
+   width: 30rem;
+   height: 30rem;
+   font-size: 10rem;
+   color: white;
+   text-align: center;
+   border-radius: 50%;
+   background-color: rgb(28, 240, 28);
+ }
+.profile_pic p{
+  position: absolute;
+  top: 21%;
+  left: 58%;
+}
+
+/* =========================================AD.HTML=============================== */
+
+.ad-img{
+  height: 40rem;
+  width: 100%;
+  margin: auto;
+  background-size: cover;
+  background-position: top;
+}
+
+.owner_details span{
+  font-size: 2.2rem;
+}
+
+.car_detail p{
+  font-size: 2rem;
+}
+.car_detail span{
+  font-size: 2rem;
+  display: block;
+}

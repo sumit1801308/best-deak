@@ -1,0 +1,70 @@
+{% extends "headfoot.html" %}
+{% load static %}
+{% block content %}
+{% if status %}
+<script>
+    alert('{{status}}')
+</script>
+{% endif %}
+<div class="container-fluid" style="padding-top:50px;">
+    <div class="row">
+        <ul type="none" class="side-menu">
+            <li class="col-md-3">
+                <a href="{% url 'dashboard' %}" class="nav-link btn">My Profile</a>
+            </li>
+            <li class="col-md-3">
+                <a href="{% url 'edit-prof' %}" class="nav-link btn">Edit Profile</a>
+            </li>
+            <li class="col-md-3">
+                <a href="{% url 'cpass' %}" class="nav-link btn">Change Password</a>
+            </li>
+            <li class="col-md-3 col-6 nav-item head">
+                <a href="{% url 'adds' %}" class="nav-link btn">My Ad
+                </a>
+            </li>
+            <li class="col-md-3 col-6 nav-item head">
+                <a href="{% url 'editad' %}" class="nav-link btn">Edit Ad
+                </a>
+            </li>
+            <li class="col-md-3 col-6 nav-item head">
+                <a href="{% url 'delete_ad' %}" class="nav-link btn"><i class="fa-solid fa-caret-right"style="font-size:20px;"></i> &nbsp;&nbsp;&nbsp;&nbsp;Delete Ad 
+                </a>
+            </li>
+            <li class="col-md-3">
+                <a href="{% url 'logout' %}" class="nav-link btn">Log Out</a>
+            </li>
+        </ul>
+        <div class=" tab col-md-8 text-center text-bold">
+            
+            {% if adds %}
+                {% for a in adds %}
+                <span style="font-size:25px;">Click On </span><span style="font-size:25px;color:rgb(28, 240, 28);"> Add </span><span style="font-size:25px;">To Delete</span>
+                <div class="row">
+                    <div class="col-md-10 m-5" >
+                        <div class="car_box p-2 text-center" style="width:80%;">
+                            <form action=""method="POST">
+                                <a href="{% url 'delete' id=a.id %}" style="text-decoration: none;" method="POST">
+                                    <img class="car_box_img" src="/media/{{a.main_img}}" alt="">
+                                    <div class="car_details mt-2">
+                                        <p class="car_name">{{a.car_name}}</p>
+                                        <span class="car_features" style="margin: 10px;">&#x20B9 {{a.price}}</span>
+                                        <span class="car_features" style="margin: 10px;">{{a.kilometers}} km</span>
+                                        <span class="car_features" style="margin: 10px;">Model-{{a.car_model}}</span>
+                                    </div>
+                                </a>
+                            </form>       
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-md-8" align="center" style="margin-left: 150px;margin-top: 50px;">
+                    <h1>You Do not Have Any Active <span style="color: rgb(28, 240, 28);">ADD </span>Yet...</h1>
+                    <h2>Click here to upload new add</h2>
+                    <a href="{% url 'newadd' %}" class="btn btn btn--green" style="color: white;">New Add</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

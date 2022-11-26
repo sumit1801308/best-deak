@@ -1,0 +1,90 @@
+{% extends "headfoot.html" %}
+{% load static %}
+{% block content %}
+{% if status %}
+<script>
+    alert('{{status}}')
+</script>
+{% endif %}
+<div class="container-fluid" style="padding-top:50px;">
+    <div class="row">
+        <ul type="none" class="side-menu">
+            <li class="col-md-3">
+                <a href="{% url 'dashboard' %}" class="nav-link btn">My Profile</a>
+            </li>
+            <li class="col-md-3">
+                <a href="{% url 'edit-prof' %}" class="nav-link btn"><i class="fa-solid fa-caret-right"style="font-size:20px;"></i> &nbsp;&nbsp;&nbsp;&nbsp;Edit Profile</a>
+            </li>
+            <li class="col-md-3">
+                <a href="{% url 'cpass' %}" class="nav-link btn">Change Password</a>
+            </li>
+            <li class="col-md-3 col-6 nav-item head">
+                <a href="{% url 'adds' %}" class="nav-link btn">My Ad
+                </a>
+            </li>
+            <li class="col-md-3 col-6 nav-item head">
+                <a href="{% url 'editad' %}" class="nav-link btn">Edit Ad
+                </a>
+            </li>
+            <li class="col-md-3 col-6 nav-item head">
+                <a href="{% url 'delete_ad' %}" class="nav-link btn">Delete Ad
+                </a>
+            </li>
+            <li class="col-md-3">
+                <a href="{% url 'logout' %}" class="nav-link btn">Log Out</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class=" tab-pane container-fluid active tab" id="edit">
+                <div id="form-messages"></div>
+                <div class="col-md-10">
+                    <form method="post" class="mu-contact-form dash-edit-form" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="reg_form-group">
+                                <h3>User Name</h3>                
+                                <input type="text" class=" form_input form-control" placeholder="Name" name="fname" value="{{profile.user.username}}" readonly required>
+                            </div>
+                            <div class="reg_form-group">   
+                                <h3>Email</h3>             
+                                <input type="email" class="form_input form-control" placeholder="Enter Email" id="email" name="email" value="{{profile.user.email}}" readonly required>
+                            </div>
+                            <div class="reg_form-group">
+                                <h3>Date Of Birth</h3>                
+                                <input type="email" class="form_input form-control" placeholder="Enter Email" id="dob" name="dob" value="{{profile.dob}}" readonly required>
+                            </div>
+                            <div class="reg_form-group">
+                                <h3>Gender</h3>
+                                <input type="text" class="form_input form-control"  name="contact_number" placeholder="Gender" value="{{profile.gender}}" readonly required />
+                            </div>
+                            <div class="reg_form-group">
+                                <h3>First Name</h3>                
+                                <input type="text" class=" form_input form-control" placeholder="Name" id="fname" name="fname" value="{{profile.user.first_name}}" required>
+                            </div>
+                            <div class="reg_form-group"> 
+                                <h3>Last Name</h3>               
+                                <input type="text" class="form_input form-control" placeholder="Name" id="lname" name="lname" value="{{profile.user.last_name}}" required>
+                            </div>                                               
+                            <div class="reg_form-group">
+                                <h3>Contact Number</h3>
+                                <input type="text" class="form_input form-control"  name="contact_number" placeholder="Contact Number" pattern="[0-9]{10}" value="{{profile.contact_number}}" title="Number must contain 10 digits only!" required />
+                            </div>             
+                                         
+                            <div class="reg_form-group">
+                                <h3>Change Profile Pic</h3>
+                                <input type="file" class="form_input form-control" name="profile_pic">
+                            </div>
+                            <div class="reg_form-group">
+                                <h3>Address</h3>
+                                <textarea class="form_input form-control" placeholder="Address" id="address" name="address" style="width: 900px;" >{{profile.address}}</textarea>
+                            </div>
+                        </div>
+                        <button type="submit" name="update_profile" class="btn btn--green form-control m-5" style="width:43%" ><span>Save </span></button>
+                        <button type="reset"  class="btn btn--green form-control m-5" style="width:43%"><span>Reset</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

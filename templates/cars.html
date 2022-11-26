@@ -1,0 +1,40 @@
+{% extends "headfoot.html" %}
+{% load static %}
+{% block content %}
+    <div class="container_fluid mx-4 mt-4">
+        <div class="col-md-12">
+            <div class="car_banner">
+                {% if car_type %} 
+                <span style="color:rgb(28, 240, 28);">{{car_type}}</span> <span>Cars</span>   
+                {% else %} 
+                    Cars 
+                {% endif %}
+                
+            </div>
+        </div>
+        <div class="row">
+            {% if cars %}
+            {% for car in cars %}
+            <div class="col-md-4">
+                <div class="car_box text-center">
+                    <a href="{% url 'ad_detail' id=car.id %}" style="text-decoration: none;">
+                        <img class="car_box_img" src="/media/{{car.main_img}}" alt="">
+                        <h2 style="color: black;">{{car.car_name}}</h2>
+                        <div class="car_details">
+                            <p class="car_name">{{car.name}}</p>
+                            <span class="car_features" style="margin: 5px;">&#x20B9 {{car.price}}</span>
+                            <span class="car_features" style="margin: 5px;">{{car.kilometers}} km</span>
+                            <span class="car_features" style="margin: 5px;">Model-{{car.model}}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="col-md-6" align="center" style="margin:auto;">
+                <h1>There is no {{car_type}} car available at this moment...</h1>
+            </div>
+            {% endif %}
+        </div>
+    </div>    
+{% endblock %}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BestDeal.com</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" type="png" href="../images/icon.png">
+    <script type="text/javascript" src="{% static 'jquery.js' %}"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    {% block script %} {% endblock %}
+</head>
+<body>
+    <header>
+        <div class="navigation">
+            <input type="checkbox" class="navigation_checkbox" id="navi_toggel">
+            <label for="navi_toggel" class="navigation_button">
+                <span class="navigation__icon">&nbsp;</span>
+            </label>
+            <div class="navigation_background">&nbsp;</div>
+            <nav class="navigation_nav">
+                <ul class="navigation_list navbar-nav">
+                    <li class="navigation_item">
+                        <a href="{% url 'home' %}" class="navigation_link">Home Page</a>
+                    </li>
+                    <li class="navigation_item">
+                        <a href="{% url 'cartypes' %}" class="navigation_link">Find Cars</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="navigation_item">
+                            {% if user.is_superuser or user.is_staff %}
+                                <a href="{% url 'admin:index' %}" class="navigation_link">My Profile</a>
+                            {% else %}
+                                <a href="{% url 'dashboard' %}" class="navigation_link">My Profile</a>
+                            {% endif %}
+                        </li>
+                    {% else %}
+                        <li class="navigation_item"><a href="{% url 'signup' %}" class="navigation_link">Sign Up</a></li>
+                    {% endif %}
+
+                    <li class="navigation_item"><a href="{% url 'contact' %}" class="navigation_link">Contact Us</a></li>
+                    <li class="navigation_item"><a href="{% url 'about' %}" class="navigation_link">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container-fluid title">
+            <div class="row mt-4">
+                <div class="web_name">
+                    <i style="color: rgb(28, 240, 28);">Best</i><i>Deal</i>
+                </div>
+                <div class="car_logo mt-4">
+                    <img src="../static/images/mycar1.png" alt="">
+                </div>
+            </div>            
+        </div>
+    </header>
+    <section>
+        {% block content %}
+        {% endblock%}
+    </section>
+    <footer>
+        <div class="container-fluid mt-5 p-0">
+            <div class="row foot">
+                <div>
+                    <span class="foot_title" style="color:rgb(28, 240, 28);">Best</span>
+                    <span class="foot_title">Deal</span>
+                    <img src="../static/images/mycar1.png" alt="#" class="foot_img">
+                </div>
+                <div class="row text-center foot_detail">
+                    <div class="foot_list">
+                        <ul type="none">
+                            <li class="foot_item"><a href="{% url 'about' %}" class="foot_link">About Us</a></li>
+                            <li class="foot_item"><a href="{% url 'about' %}" class="foot_link">How It Works</a></li>
+                            <li class="foot_item"><a href="{% url 'about' %}" class="foot_link">Why Choose Us</a></li>
+                            <li class="foot_item"><a href="{% url 'about' %}" class="foot_link">FAQ</a></li>
+                            <li class="foot_item"><a href="{% url 'about' %}" class="foot_link">Evaluate Your Car</a></li>
+                            <li class="foot_item"><a href="{% url 'contact' %}" class="foot_link">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="foot_list">
+                        <ul type="none">
+                            <li class="foot_item"><a href="{% url 'about' %}" class="foot_link">Privacy Policy</a></li>
+                            <li class="foot_item"><a href="{% url 'about' %}" class="foot_link">Terms & Conditions</a></li>
+                            <li class="foot_item"><a href="{% url 'about' %}" class="foot_link">Carrers</a></li>
+                            <li class="foot_item"><a href="{% url 'cartypes' %}" class="foot_link">Car Types</a></li>
+                            <li class="foot_item"><a href="{% url 'about' %}" class="foot_link">Terms Of Use</a></li>
+                            <li class="foot_item"><a href="{% url 'about' %}" class="foot_link">Testimonials</a></li>
+                        </ul>
+                    </div>
+                    <div class="foot_list">
+                        <ul type="none">
+                            <li class="foot_item"><a href="https://www.facebook.com/" class="foot_link"><i class="fab fa-facebook"></i> FaceBook</a></li>
+                            <li class="foot_item"><a href="https://www.instagram.com/" class="foot_link"><i class="fab fa-instagram"></i> Instagram</a></li>
+                            <li class="foot_item"><a href="https://www.youtube.com/" class="foot_link"><i class="fab fa-youtube"></i> Youtube</a></li>
+                            <li class="foot_item"><a href="https://twitter.com/?lang=en-in" class="foot_link"><i class="fab fa-twitter"></i> Twitter</a></li>
+                            <li class="foot_item"><a href="https://www.google.co.in/" class="foot_link"><i class="fab fa-google"></i> Google</a></li>
+                            <li class="foot_item"><a href="https://in.linkedin.com/" class="foot_link"><i class="fab fa-linkedin-in"></i> LinkEdin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

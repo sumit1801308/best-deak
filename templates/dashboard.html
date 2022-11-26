@@ -1,0 +1,55 @@
+{% extends "headfoot.html" %}
+
+{% block content %}
+    <div class="container-fluid" style="padding-top:50px;">
+        <div class="row">
+            <ul type="none" class="side-menu">
+                <li class="col-md-3">
+                    <a href="{% url 'dashboard' %}" class="nav-link btn"><i class="fa-solid fa-caret-right"style="font-size:20px;"></i> &nbsp;&nbsp;&nbsp;&nbsp;My Profile</a>
+                </li>
+                <li class="col-md-3">
+                    <a href="{% url 'edit-prof' %}" class="nav-link btn">Edit Profile</a>
+                </li>
+                <li class="col-md-3">
+                    <a href="{% url 'cpass' %}" class="nav-link btn">Change Password</a>
+                </li>
+                <li class="col-md-3 col-6 nav-item head">
+                    <a href="{% url 'adds' %}" class="nav-link btn">My Ad
+                    </a>
+                </li>
+                <li class="col-md-3 col-6 nav-item head">
+                    <a href="{% url 'editad' %}" class="nav-link btn">Edit Ad
+                    </a>
+                </li>
+                <li class="col-md-3 col-6 nav-item head">
+                    <a href="{% url 'delete_ad' %}" class="nav-link btn">Delete Ad
+                    </a>
+                </li>
+                <li class="col-md-3">
+                    <a href="{% url 'logout' %}" class="nav-link btn">Log Out</a>
+                </li>
+            </ul>
+            <div class="col-md-9 container-fluid tab p-5" id="dash">
+                <div class="row">
+                    <div class="col-md-3 ml-5">
+                        {% if profile.profile_pic %}
+                        <a href="/media/{{profile.profile_pic}}"><img src="/media/{{profile.profile_pic}}" alt="" class="profile_pic"></a>
+                        {% else %}
+                        <div class='profile_pic'><p>{{profile.user.first_name.0}}</p></div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-5 profile-info">                                                          
+                        <span class="profile-name"><strong>{{user.first_name}} {{user.last_name}}</strong></span>
+                        <p><strong>Email : </strong>{{user.email}}</p>
+                        <p><strong>Date Of Birth : </strong>{{profile.dob}}</p>
+                        <p><strong>Gender : </strong>{{profile.gender}}</p>
+                        <p><strong>Contact: </strong>{{profile.contact_number}}</p>
+                        <p><strong>Address: </strong>{{profile.address}}</p>
+                        <p><strong>Member Since: </strong>{{user.date_joined}}</p>
+                        <p><strong>Last Login: </strong>{{user.last_login}}</p>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div> 
+{% endblock %}

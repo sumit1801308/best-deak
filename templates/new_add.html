@@ -1,0 +1,133 @@
+{% extends "headfoot.html" %}
+{% load static %}
+{% block content %}
+{% if status %}
+<script>
+    alert('{{status}}')
+</script>
+{% endif %}  
+    <section>
+        <div class="container_fluid">
+               <div class="regform_title">
+                   <span style="color: rgb(28, 240, 28);">Upload</span> <span>New Add</span>
+               </div>
+            <div class="">
+                <div class="regform col-md-8 p-5">
+                    <form action="" class="p-4" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form }}
+                        <div class="row">
+                            <div class="reg_form-group">
+                                <input type="text" name="carname" class="form_input form-control" placeholder="Ad's Name" id="carname" required>
+                                <label for="name" class="form_label ">Ad's Name</label>
+                            </div>
+                            <div class="reg_form-group">
+                                <select class="form_input" name="carbrand" id="carbrand" required>
+                                    <option value=" ">Car Brand</option>
+                                    <option value=" ">--------------------</option>
+                                    <option value="Maruti Suzuki">Maruti Suzuki</option>
+                                    <option value="Hyundai">Hyundai</option>
+                                    <option value="Ford">Ford</option>
+                                    <option value="Tata Motors">Tata Motors</option>
+                                    <option value="Mahindra">Mahindra</option>
+                                    <option value="Kia">Kia</option>
+                                    <option value="Audi">Audi</option>
+                                    <option value="BMW">BMW</option>
+                                    <option value="Honda">Honda</option>
+                                    <option value="Jaguar">Jaguar</option>
+                                    <option value="Land Rover">Land Rover</option>
+                                    <option value="Mercedes">Mercedes</option>
+                                    <option value="Skoda">Skoda</option>
+                                    <option value="Toyota">Toyota</option>
+                                    <option value="Volkswagen">Volkswagen</option>
+                                    <option value="Renault">Renault</option>
+                                    <option value="Nisan">Nisan</option>
+                                    <option value="Datsun">Datsun</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                                <!-- <label for="pass" class="form_label">Car Company</label> -->
+                            </div>
+                            <div class="reg_form-group">
+                                <input type="text" id="carmodel" name="carmodel" class="form_input form-control" placeholder="Car Model" required>
+                                <label class="form_label">Car Model</label>
+                            </div>
+                            <div class="reg_form-group">
+                                <input type="number" id="regyear" name="regyear" class="form_input form-control" pattern="[0-9]{10}" placeholder="Registration Year" required>
+                                <label class="form_label">Registration Year</label>
+                            </div>
+                            <div class="reg_form-group">
+                                <input type="number" class="form_input form-control" name="kilometers" placeholder="Kilometers" id="kilometers" required>
+                                <label class="form_label">Kilometers</label>
+                            </div>
+                            <div class="reg_form-group">
+                                <select class="form_input" name="fueltype" id="fueltype" required>
+                                    <option value=" ">Fuel Type</option>
+                                    <option value=" ">--------------------</option>
+                                    <option value="Petrol">Petrol</option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="CNG">CNG</option>
+                                    <option value="Electrical">Electrical</option>
+                                </select>
+                            </div>
+                            <div class="reg_form-group">
+                                <select class="form_input" name="cartype" id="cartype" required>
+                                    <option value=" ">Body Type</option>
+                                    <option value=" ">--------------------</option>
+                                    <option value="1">Hatchback</option>
+                                    <option value="2">Sedan</option>
+                                    <option value="3">SUV</option>
+                                    <option value="4">MUV</option>
+                                    <option value="5">Coupe</option>
+                                    <option value="6 ">Convertible</option>
+                                </select>
+                            </div>
+                            <div class="reg_form-group">
+                                <select class="form_input" name="transmission" id="transmission" required>
+                                    <option value=" ">Transmission</option>
+                                    <option value=" ">--------------------</option>
+                                    <option value="Manual">Manual</option>
+                                    <option value="Automatic">Automatic</option>
+                                    <option value="Hybrid">Hybrid</option>
+                                </select>
+                            </div>
+                            <div class="reg_form-group">
+                                <br>
+                                <br>
+                                <input type="number" class="form_input form-control" name="mileage" placeholder="Mileage" id="mileage" required>
+                                <label for="date" class="form_label">Mileage</label>
+                            </div>
+                            <div class="reg_form-group">
+                                <br>
+                                <br>
+                                <input type="text"class="form_input form-control" name="location" placeholder="Location" id="location" required>
+                                <label for="date" class="form_label">Location</label>
+                            </div>
+                            <div class="reg_form-group">
+                                <input type="text" class="form_input form-control" name="color" placeholder="Color" id="color" required>
+                                <label for="date" class="form_label">Color</label>
+                            </div>
+                            <div class="reg_form-group">
+                                <input type="number" class="form_input form-control" name="price" placeholder="Price" id="price" required>
+                                <label for="date" class="form_label">Price</label>
+                            </div>
+                            <div class="reg_form-group">
+                                <br>
+                                <br>
+                                <br>
+                                <input type="text" class="form_input form-control" name="cardetails" placeholder="Other Car Details" id="cardetails" required>
+                                <label for="date" class="form_label">Other Car details</label>
+                            </div>
+                            <div class="reg_form-group">
+                                <label for="images" class="form_label">Ad Pic</label>
+                                <input type="file" class="form_input form-control" placeholder="Other Car Details" name="images" id="images">
+                            </div>
+                        </div>
+                        <div class="reg_form-group" style="margin: auto;">
+                            <button type="submit" class="btn btn--green form-control"  id="signup">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

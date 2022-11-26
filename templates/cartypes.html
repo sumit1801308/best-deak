@@ -1,0 +1,25 @@
+{% extends "headfoot.html" %}
+{% load static %}
+{% block content %}
+    <div class="container_fluid mx-4 mt-4">
+        <div class="col-md-12">
+            <div class="car_banner">
+                <span style="color:rgb(28, 240, 28);">Search</span> <span>By Bodystyle</span>
+            </div>
+        </div>
+        <div class="row">
+            {% for c in cartypes %}
+            <div class="col-md-6">    
+                <div class="car_box" style="margin: 20px;">
+                    <a href="{% url 'cars' %}?q={{c.id}}" style="text-decoration: none;">
+                        <img class="car_box_img" src="/media/{{c.image}}" alt="" style="width: 80%;margin-left: 50px;">
+                        <div class="car_details" style="text-align: center;">
+                            <p class="car_name">{{c.name}} Cars</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>    
+{% endblock %}
